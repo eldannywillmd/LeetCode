@@ -34,4 +34,4 @@ class Solution:
 s = "ADOBECODEBANC"
 t = "ABC"
 solution = Solution()
-print(solution.minWindow2(s,t))
+print(solution.minWindow(s,t))
