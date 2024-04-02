@@ -20,7 +20,9 @@ class Solution:
                     sub = sub[1:]
                 elif sub[0] in t_count and count[sub[0]] <= t_count[sub[0]] or len(sub) == 1:
                     break
-            if count >= t_count:
+            if is_sub == True:
+                min_sub = min(min_sub, sub, key=len)[:]
+            elif is_sub == False and count >= t_count:
                 if is_sub == False:
                     is_sub = True
                 min_sub = min(min_sub, sub, key=len)[:]
@@ -30,7 +32,7 @@ class Solution:
         else:
             return min_sub
 
-s = "ab"
-t = "a"
+s = "ADOBECODEBANC"
+t = "ABC"
 solution = Solution()
 print(solution.minWindow(s,t))
