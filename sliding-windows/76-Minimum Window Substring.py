@@ -16,7 +16,7 @@ class Solution:
                 elif sub[0] in t_count and count[sub[0]] != t_count[sub[0]]:
                     count[sub[0]] -= 1
                     sub = sub[1:]
-                elif len(sub) > 1 and sub[0] not in t_count:
+                elif sub[0] not in t_count:
                     sub = sub[1:]
             if is_sub == True:
                 min_sub = min(min_sub, sub, key=len)[:]
