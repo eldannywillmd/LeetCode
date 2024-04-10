@@ -13,7 +13,7 @@ class Solution:
                 translation[s[i]] = t[i]
         return True
 
-s = "paper"
-t = "title"
+s = "badc"
+t = "baba"
 solution = Solution()
 print(solution.isIsomorphic(s,t))
