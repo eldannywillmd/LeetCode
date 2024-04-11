@@ -10,7 +10,10 @@ class Solution:
                 else:
                     return False
             else:
-                translation[s[i]] = t[i]
+                if t[i] not in translation.values():
+                    translation[s[i]] = t[i]
+                else:
+                    return False
         return True
 
 s = "badc"

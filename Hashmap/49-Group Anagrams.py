@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 import numpy
 class Solution:
     def groupAnagrams(self, strs):
@@ -6,9 +8,12 @@ class Solution:
         for s in strs:
             value = 0
             for char in s:
-                value += numpy. # get numeric value of the char ?? How to get value of char?
+                value += ord(char) # get numeric value of the char ?? How to get value of char?
             # all anagrams will have the same (length, value) pair -> add to anagrams
-            anagrams[(len(s), value)].add(s)
+            if len(s) * value not in anagrams.keys():
+                anagrams[len(s)*value] = s
+            else:
+                anagrams[len(s) * value].add(s)
 
         for anagram in anagrams:
             ans.append([anagrams[anagram]])
