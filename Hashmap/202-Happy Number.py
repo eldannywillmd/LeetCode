@@ -1,11 +1,11 @@
 class Solution:
     def isHappy(self, n):
         hmap = {}
-        print(n%10)
-        while n:
+        # 19 -> 82 -> 68 -> 100 -> 1 -> 1
+        while True:
             digit = n % 10
-
-
+            ...
+        return False
 
 n = 19
 solution = Solution()

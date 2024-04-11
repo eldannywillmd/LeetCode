@@ -1,6 +1,4 @@
-from collections import defaultdict
 
-import numpy
 class Solution:
     def groupAnagrams(self, strs):
         anagrams = {}
@@ -11,13 +9,12 @@ class Solution:
                 value += ord(char) # get numeric value of the char ?? How to get value of char?
             # all anagrams will have the same (length, value) pair -> add to anagrams
             if len(s) * value not in anagrams.keys():
-                anagrams[len(s)*value] = s
+                anagrams[len(s)*value] = [s]
             else:
-                anagrams[len(s) * value].add(s)
+                anagrams[len(s)*value].append(s)
 
         for anagram in anagrams:
-            ans.append([anagrams[anagram]])
-        print(ans)
+            ans.append(anagrams[anagram])
         return ans
 
 strs = ["eat","tea","tan","ate","nat","bat"]
