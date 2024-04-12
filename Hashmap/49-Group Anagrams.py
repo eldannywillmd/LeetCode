@@ -2,21 +2,30 @@
 class Solution:
     def groupAnagrams(self, strs):
         anagrams = {}
-        ans = []
         for s in strs:
-            value = 0
+            value = 1
             for char in s:
-                value += ord(char) # get numeric value of the char ?? How to get value of char?
-            # all anagrams will have the same (length, value) pair -> add to anagrams
-            if len(s) * value not in anagrams.keys():
-                anagrams[len(s)*value] = [s]
+                value *= ord(char)
+            if value not in anagrams.keys():
+                anagrams[value] = [s]
             else:
-                anagrams[len(s)*value].append(s)
+                anagrams[value].append(s)
 
-        for anagram in anagrams:
-            ans.append(anagrams[anagram])
-        return ans
+        return list(anagrams.values())
+
+    def groupAnagrams2(self, strs):
+        anagrams = {}
+        for s in strs:
+            value = 1
+            for char in s:
+                value *= ord(char)
+            if value not in anagrams.keys():
+                anagrams[value] = [s]
+            else:
+                anagrams[value].append(s)
+
+        return list(anagrams.values())
 
 strs = ["eat","tea","tan","ate","nat","bat"]
 solution = Solution()
-solution.groupAnagrams(strs)
+print(solution.groupAnagrams2(strs))
