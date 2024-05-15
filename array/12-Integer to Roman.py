@@ -1,3 +1,5 @@
+import unittest
+
 class Solution:
     def intToRoman(self, num):
         roman_dict = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
@@ -26,7 +28,19 @@ class Solution:
                     word += roman_dict[key]
         return word
 
-solution = Solution()
-#MCMXCIV
-num = 12
-print(solution.intToRoman(num))
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_intToRoman(self):
+        self.assertEqual(self.solution.intToRoman(12), 'XII')
+        self.assertEqual(self.solution.intToRoman(1), 'I')
+        self.assertEqual(self.solution.intToRoman(5), 'V')
+        self.assertEqual(self.solution.intToRoman(10), 'X')
+        self.assertEqual(self.solution.intToRoman(50), 'L')
+        self.assertEqual(self.solution.intToRoman(100), 'C')
+        self.assertEqual(self.solution.intToRoman(500), 'D')
+        self.assertEqual(self.solution.intToRoman(1000), 'M')
+
+if __name__ == '__main__':
+    unittest.main()

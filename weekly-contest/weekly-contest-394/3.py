@@ -40,4 +40,3 @@ class Solution:
 
 grid = [[2],[8],[6],[7],[8],[2],[0],[9],[0],[8]]
 solution = Solution()
-print(solution.minimumOperations(grid))
